@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	html {
+		@apply w-full overflow-hidden;
+		-webkit-tap-highlight-color: transparent;
+	}
+	body {
+		@apply fixed h-full w-full overflow-auto;
+	}
+
+	h1 {
+		@apply mb-6 font-hero text-3xl font-bold;
+	}
+
+	h2 {
+		@apply mb-2 text-lg font-semibold;
+	}
+
+	p {
+		@apply mb-2;
+	}
+}
