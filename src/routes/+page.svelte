@@ -18,18 +18,22 @@
 		(link as prismicT.FilledLinkToWebField).url;
 	let socials = [
 		{
+			label: 'Mail',
 			url: getUrlFromPrismicLink(homepage.mail),
 			icon: Mail
 		},
 		{
+			label: 'Twitter',
 			url: getUrlFromPrismicLink(homepage.twitter),
 			icon: Twitter
 		},
 		{
+			label: 'Github',
 			url: getUrlFromPrismicLink(homepage.github),
 			icon: Github
 		},
 		{
+			label: 'Linkedin',
 			url: getUrlFromPrismicLink(homepage.linkedin),
 			icon: Linkedin
 		}
@@ -78,6 +82,7 @@
 		<div id="social-grid" class="grid grid-cols-2 gap-6">
 			{#each socials as social}
 				<a
+					aria-label={social.label}
 					href={social.url}
 					target="_blank"
 					rel="noreferrer"

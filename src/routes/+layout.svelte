@@ -18,6 +18,8 @@
 </script>
 
 <svelte:head>
+	<title>{homepage.name}</title>
+	<meta name="description" content={homepage.meta_description} />
 	<link
 		href="https://fonts.googleapis.com/css2?family=Unbounded:wght@900&display=swap"
 		rel="stylesheet"
@@ -33,6 +35,7 @@
 >
 	<header>
 		<button
+			aria-label="Toggle dark theme"
 			class="fixed right-4 top-4 z-10 text-white mix-blend-difference transition-transform duration-1000 hover:animate-[spin_3s_linear_infinite]"
 			on:click={toggleDark}
 		>

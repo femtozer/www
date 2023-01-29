@@ -12,6 +12,7 @@
 	>
 		{#each tabs as tab, i}
 			<button
+				aria-label={tab.label}
 				class="flex h-10 items-center pl-2 hover:bg-opacity-30"
 				on:click={() => (tabIndex = i)}>{tab.label}</button
 			>
