@@ -494,9 +494,7 @@ export class Gradient {
 				(this.isScrolling = !1), this.isIntersecting && this.play();
 			}),
 			e(this, 'resize', (e) => {
-				console.log('w:', window.innerWidth),
-					console.log('h:', window.innerHeight),
-					(this.width = e ? e.currentTarget.innerWidth : window.innerWidth),
+				(this.width = e ? e.currentTarget.innerWidth : window.innerWidth),
 					(this.height = e ? e.currentTarget.innerHeight : window.innerHeight),
 					this.minigl.setSize(this.width, this.height + 100), // prevent white block when url bar disappears on mobile
 					this.minigl.setOrthographicCamera(),
