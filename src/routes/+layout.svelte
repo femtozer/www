@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Background from '$lib/components/Background.svelte';
 	import { Heart, Moon } from 'lucide-svelte';
+	import { onMount } from 'svelte';
 	import '../app.css';
 	import type { HomepageDocumentData } from '../types.d';
 
@@ -8,13 +9,20 @@
 	let homepage: HomepageDocumentData = data.document.data;
 
 	let dark = false;
+	let favicon: HTMLElement | null;
 	const toggleDark = () => {
 		dark = !dark;
+		favicon?.setAttribute('href', `favicon${dark ? '-dark' : ''}.png`);
 	};
+
 	const primaryColor = homepage.primary_color || '#FFF';
 	const secondaryColor = homepage.secondary_color || '#000';
 	const lightGradientColors = ['#FFF', '#999', primaryColor, secondaryColor];
 	const darkGradientColors = ['#222', '#444', primaryColor, secondaryColor];
+
+	onMount(() => {
+		favicon = document.getElementById('favicon');
+	});
 </script>
 
 <svelte:head>
@@ -48,7 +56,8 @@
 	</main>
 
 	<footer class="flex w-full items-center justify-center pb-2">
-		<span class="text-xs text-white mix-blend-difference"
+		<span
+			class="text-xs text-white mix-blend-difference selection:bg-transparent selection:text-gray-800"
 			>Built with <Heart class="mb-1 inline-block hover:animate-ping" size={15} /> by
 			{homepage.name}</span
 		>
@@ -56,7 +65,7 @@
 </div>
 
 <style>
-	*::selection {
+	:global(::selection) {
 		background: var(--primary-color);
 	}
 </style>
