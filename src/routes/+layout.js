@@ -1,4 +1,6 @@
 export const prerender = true;
 import { inject } from '@vercel/analytics';
 
-inject();
+if (import.meta.env.VITE_ENV === 'production') {
+	inject();
+}
