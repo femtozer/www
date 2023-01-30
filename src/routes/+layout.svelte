@@ -55,7 +55,7 @@
 		<slot />
 	</main>
 
-	<footer class="flex w-full items-center justify-center pb-2">
+	<footer class="mt-20 flex w-full items-center justify-center pb-2 sm:mt-0">
 		<span
 			class="text-xs text-white mix-blend-difference selection:bg-transparent selection:text-gray-800"
 			>Built with <Heart class="mb-1 inline-block hover:animate-ping" size={15} /> by

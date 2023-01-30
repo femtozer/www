@@ -1,6 +1,5 @@
 <script lang="ts">
 	import Card from '$lib/components/Card.svelte';
-	import FullPage from '$lib/components/FullPage.svelte';
 	import Link from '$lib/components/Link.svelte';
 	import Tabs from '$lib/components/Tabs.svelte';
 	import * as prismicH from '@prismicio/helpers';
@@ -40,7 +39,7 @@
 	];
 </script>
 
-<FullPage>
+<div class="flex min-h-screen w-full flex-col items-center justify-center">
 	<div class="text-white mix-blend-difference selection:bg-transparent selection:text-gray-800">
 		<div>Hi, my name is</div>
 		<div class="font-hero text-4xl leading-normal  sm:text-5xl md:text-7xl">
@@ -48,8 +47,8 @@
 		</div>
 		<div class="float-right">I'm a {homepage.role}</div>
 	</div>
-</FullPage>
-<FullPage>
+</div>
+<div class="flex w-full flex-col items-center justify-center py-20 sm:min-h-screen">
 	<Card>
 		<h1>About me</h1>
 		<div>
@@ -69,14 +68,14 @@
 			{/each}
 		</ul>
 	</Card>
-</FullPage>
-<FullPage>
+</div>
+<div class="flex w-full flex-col items-center justify-center py-20 sm:min-h-screen">
 	<Card>
 		<h1>Work</h1>
 		<Tabs {tabs} tabColor={homepage.primary_color || '#000'} />
 	</Card>
-</FullPage>
-<FullPage>
+</div>
+<div class="flex w-full flex-col items-center justify-center py-20 sm:min-h-screen">
 	<Card>
 		<h1>Contact</h1>
 		<div id="social-grid" class="grid grid-cols-2 gap-6">
@@ -93,7 +92,7 @@
 			{/each}
 		</div>
 	</Card>
-</FullPage>
+</div>
 
 <style>
 	li::before {

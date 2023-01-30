@@ -30,6 +30,6 @@ You can preview the production build with `npm run preview`.
 
 ## Generating Prismic types
 
-``` bash
+```bash
 npx prismic-ts-codegen
 ```
