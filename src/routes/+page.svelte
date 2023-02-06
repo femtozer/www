@@ -85,7 +85,7 @@
 					href={social.url}
 					target="_blank"
 					rel="noreferrer"
-					class="flex h-40 items-center justify-center rounded-xl border-[1px] border-gray-800 border-opacity-30 shadow-md dark:border-white dark:border-opacity-30"
+					class="flex h-40 items-center justify-center rounded-xl border-[1px] border-gray-800 border-opacity-30 shadow-md transition-shadow dark:border-white dark:border-opacity-30"
 				>
 					<svelte:component this={social.icon} size={48} strokeWidth={1} />
 				</a>
