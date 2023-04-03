@@ -58,13 +58,13 @@
 
 <div class:dark>
 	<div
-		class="relative flex min-h-screen flex-col  text-gray-800 dark:text-gray-50"
+		class="relative flex min-h-screen flex-col text-gray-800 dark:text-gray-50"
 		class:dark:bg-gray-800={!isHomepage}
 		class:bg-gray-50={!isHomepage}
 		style="--primary-color:{primaryColor}; --secondary-color:{secondaryColor}"
 	>
 		<header
-			class="sticky top-0 z-10 flex w-full flex-row-reverse items-center justify-between p-4 backdrop-blur-xl {additionalClasses}"
+			class="sticky top-0 z-10 flex w-full flex-row-reverse items-center justify-between p-3 backdrop-blur-xl sm:p-4 {additionalClasses}"
 		>
 			<div class="flex justify-center gap-4 align-middle">
 				<a href={isHomepage ? '/blog' : '/'} class="hover:font-semibold"
