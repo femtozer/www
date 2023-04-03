@@ -20,7 +20,7 @@
 					</div>
 					<img
 						alt={post.data.thumbnail.alt}
-						src={post.data.thumbnail.url}
+						src={prismicH.asImageSrc(post.data.thumbnail, { h: 256 })}
 						class="h-24 w-auto max-w-none object-cover  sm:h-32 sm:w-32"
 					/>
 				</div>
