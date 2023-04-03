@@ -6,9 +6,9 @@ export async function load({ fetch, request }) {
 	const client = createClient({ fetch, request });
 
 	try {
-		const homepage = await client.getSingle('homepage');
-		if (homepage) {
-			return { homepage };
+		const documents = await client.getAllByType('blog_post');
+		if (documents) {
+			return { documents };
 		}
 	} catch (e) {
 		console.error(e);

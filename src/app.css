@@ -4,11 +4,11 @@
 
 @layer base {
 	html {
-		@apply w-full overflow-hidden;
 		-webkit-tap-highlight-color: transparent;
 	}
+
 	body {
-		@apply fixed h-full w-full overflow-auto;
+		@apply overscroll-none;
 	}
 
 	h1 {

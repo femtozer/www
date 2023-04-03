@@ -6,6 +6,78 @@ import type * as prismicT from '@prismicio/types';
 type Simplify<T> = {
 	[KeyType in keyof T]: T[KeyType];
 };
+/** Content for Blog post documents */
+interface BlogPostDocumentData {
+	/**
+	 * Title field in *Blog post*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: blog_post.title
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+	 *
+	 */
+	title: prismicT.KeyTextField;
+	/**
+	 * Published at field in *Blog post*
+	 *
+	 * - **Field Type**: Date
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: blog_post.published_at
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/core-concepts/date
+	 *
+	 */
+	published_at: prismicT.DateField;
+	/**
+	 * Thumbnail field in *Blog post*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: blog_post.thumbnail
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/core-concepts/image
+	 *
+	 */
+	thumbnail: prismicT.ImageField<never>;
+	/**
+	 * Abstract field in *Blog post*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: blog_post.abstract
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+	 *
+	 */
+	abstract: prismicT.RichTextField;
+	/**
+	 * Content field in *Blog post*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: blog_post.content
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+	 *
+	 */
+	content: prismicT.RichTextField;
+}
+/**
+ * Blog post document from Prismic
+ *
+ * - **API ID**: `blog_post`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type BlogPostDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<
+	Simplify<BlogPostDocumentData>,
+	'blog_post',
+	Lang
+>;
 /** Content for Homepage documents */
 interface HomepageDocumentData {
 	/**
@@ -259,7 +331,7 @@ export type HomepageDocument<Lang extends string = string> = prismicT.PrismicDoc
 	'homepage',
 	Lang
 >;
-export type AllDocumentTypes = HomepageDocument;
+export type AllDocumentTypes = BlogPostDocument | HomepageDocument;
 declare module '@prismicio/client' {
 	interface CreateClient {
 		(
@@ -269,6 +341,8 @@ declare module '@prismicio/client' {
 	}
 	namespace Content {
 		export type {
+			BlogPostDocumentData,
+			BlogPostDocument,
 			HomepageDocumentData,
 			HomepageDocumentDataTechnosItem,
 			HomepageDocumentDataWorkExperiencesItem,

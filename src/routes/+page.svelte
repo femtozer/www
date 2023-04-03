@@ -9,7 +9,7 @@
 
 	// https://prismic.io/docs/svelte-fetch-data#serverside-fetching-with-sveltekit
 	export let data;
-	let homepage: HomepageDocumentData = data.document.data;
+	let homepage: HomepageDocumentData = data.homepage.data;
 	let tabs = homepage.work_experiences.map((we) => {
 		return { label: we.company || '', content: prismicH.asHTML(we.experience) };
 	});
@@ -39,8 +39,8 @@
 	];
 </script>
 
-<div class="flex min-h-screen w-full flex-col items-center justify-center">
-	<div class="text-white mix-blend-difference selection:bg-transparent selection:text-gray-800">
+<div class="mt-[-56px] flex min-h-screen w-full flex-col items-center justify-center">
+	<div class="text-gray-50 mix-blend-difference selection:bg-transparent selection:text-gray-800">
 		<div>Hi, my name is</div>
 		<div class="font-hero text-4xl leading-normal  sm:text-5xl md:text-7xl">
 			{homepage.name}
@@ -85,7 +85,7 @@
 					href={social.url}
 					target="_blank"
 					rel="noreferrer"
-					class="flex h-40 items-center justify-center rounded-xl border-[1px] border-gray-800 border-opacity-30 shadow-md transition-shadow dark:border-white dark:border-opacity-30"
+					class="flex h-40 items-center justify-center rounded-xl border-[1px] border-gray-800 border-opacity-30 shadow-md transition-shadow dark:border-gray-50 dark:border-opacity-30"
 				>
 					<svelte:component this={social.icon} size={48} strokeWidth={1} />
 				</a>

@@ -1,18 +1,36 @@
 <script lang="ts">
+	import { browser } from '$app/environment';
+	import { page } from '$app/stores';
 	import Background from '$lib/components/Background.svelte';
 	import { Heart, Moon } from 'lucide-svelte';
 	import { onMount } from 'svelte';
 	import '../app.css';
-	import type { HomepageDocumentData } from '../types.d';
+	import type { HomepageDocumentData } from '../types';
 
 	export let data;
-	let homepage: HomepageDocumentData = data.document.data;
+	let homepage: HomepageDocumentData = data.homepage.data;
 
-	let dark = false;
+	let isHomepage: boolean;
+	let additionalClasses: string;
+
+	page.subscribe((value) => {
+		isHomepage = value.route.id == '/';
+		additionalClasses = isHomepage
+			? 'bg-opacity-10 backdrop-blur-xl sm:bg-opacity-100 sm:backdrop-filter-none'
+			: 'bg-opacity-10 backdrop-blur-xl';
+	});
+
 	let favicon: HTMLElement | null;
+	let dark = true;
+
+	if (browser) {
+		dark = localStorage.theme === 'dark' || !('theme' in localStorage);
+	}
+
 	const toggleDark = () => {
 		dark = !dark;
 		favicon?.setAttribute('href', `favicon${dark ? '-dark' : ''}.png`);
+		localStorage.setItem('theme', dark ? 'dark' : 'light');
 	};
 
 	const primaryColor = homepage.primary_color || '#FFF';
@@ -34,34 +52,49 @@
 	/>
 </svelte:head>
 
-<Background gradientColors={dark ? darkGradientColors : lightGradientColors} />
+{#if isHomepage}
+	<Background gradientColors={dark ? darkGradientColors : lightGradientColors} />
+{/if}
 
-<div
-	class:dark
-	class="relative px-3 "
-	style="--primary-color:{primaryColor}; --secondary-color:{secondaryColor}"
->
-	<header>
-		<button
-			aria-label="Toggle dark theme"
-			class="fixed right-4 top-4 z-10 text-white mix-blend-difference transition-transform duration-1000 hover:animate-[spin_3s_linear_infinite]"
-			on:click={toggleDark}
+<div class:dark>
+	<div
+		class="relative flex min-h-screen flex-col  text-gray-800 dark:text-gray-50"
+		class:dark:bg-gray-800={!isHomepage}
+		class:bg-gray-50={!isHomepage}
+		style="--primary-color:{primaryColor}; --secondary-color:{secondaryColor}"
+	>
+		<header
+			class="sticky top-0 z-10 flex w-full flex-row-reverse items-center justify-between p-4 backdrop-blur-xl {additionalClasses}"
 		>
-			<Moon fill={dark ? '#FFF' : null} />
-		</button>
-	</header>
+			<div class="flex justify-center gap-4 align-middle">
+				<a href={isHomepage ? '/blog' : '/'} class="hover:font-semibold"
+					>{isHomepage ? 'Blog' : 'About'}</a
+				>
+				<button
+					aria-label="Toggle dark theme"
+					class="z-10 mix-blend-difference transition-transform duration-1000 hover:animate-[spin_3s_linear_infinite]"
+					on:click={toggleDark}
+				>
+					<Moon />
+				</button>
+			</div>
 
-	<main class="text-gray-800 dark:text-white">
-		<slot />
-	</main>
+			{#if !isHomepage}
+				<a class="font-hero" href="/blog">{homepage.name}</a>
+			{/if}
+		</header>
 
-	<footer class="mt-20 flex w-full items-center justify-center pb-2 sm:mt-0">
-		<span
-			class="text-xs text-white mix-blend-difference selection:bg-transparent selection:text-gray-800"
-			>Built with <Heart class="mb-1 inline-block hover:animate-ping" size={15} /> by
-			{homepage.name}</span
-		>
-	</footer>
+		<main class="flex-grow px-3 sm:px-4 md:px-10 lg:px-16">
+			<slot />
+		</main>
+
+		<footer class="mt-20 flex w-full items-center justify-center pb-2 sm:mt-0">
+			<span class="text-xs text-gray-50 mix-blend-difference selection:bg-transparent "
+				>Built with <Heart class="mb-1 inline-block hover:animate-ping" size={15} /> by
+				{homepage.name}</span
+			>
+		</footer>
+	</div>
 </div>
 
 <style>
