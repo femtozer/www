@@ -81,6 +81,17 @@ export type BlogPostDocument<Lang extends string = string> = prismicT.PrismicDoc
 /** Content for Homepage documents */
 interface HomepageDocumentData {
 	/**
+	 * Domain field in *Homepage*
+	 *
+	 * - **Field Type**: Link
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: homepage.domain
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+	 *
+	 */
+	domain: prismicT.LinkField;
+	/**
 	 * Name field in *Homepage*
 	 *
 	 * - **Field Type**: Text

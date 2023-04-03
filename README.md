@@ -18,7 +18,7 @@ npm run dev
 npm run dev -- --open
 ```
 
-## Building
+## Build
 
 To create a production version of your app:
 
@@ -28,7 +28,7 @@ npm run build
 
 You can preview the production build with `npm run preview`.
 
-## Generating Prismic types
+## Generate Prismic types
 
 ```bash
 npx prismic-ts-codegen
