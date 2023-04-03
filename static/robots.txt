@@ -1,3 +1,3 @@
 User-agent: *
 Disallow: 
-Sitemap: http://eliottbenoit.dev/sitemap.xml
+Sitemap: https://eliottbenoit.dev/sitemap.xml

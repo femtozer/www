@@ -41,6 +41,7 @@
 	:global(article img) {
 		margin-top: 3rem;
 		margin-bottom: 0;
+		border-radius: 0.375rem;
 	}
 
 	:global(article p) {
