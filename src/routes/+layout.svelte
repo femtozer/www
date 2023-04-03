@@ -2,6 +2,7 @@
 	import { browser } from '$app/environment';
 	import { page } from '$app/stores';
 	import Background from '$lib/components/Background.svelte';
+	import type * as prismicT from '@prismicio/types';
 	import { Heart, Moon } from 'lucide-svelte';
 	import { onMount } from 'svelte';
 	import '../app.css';
@@ -38,6 +39,9 @@
 	const lightGradientColors = ['#FFF', '#999', primaryColor, secondaryColor];
 	const darkGradientColors = ['#222', '#444', primaryColor, secondaryColor];
 
+	const getUrlFromPrismicLink = (link: prismicT.LinkField) =>
+		(link as prismicT.FilledLinkToWebField).url;
+
 	onMount(() => {
 		favicon = document.getElementById('favicon');
 	});
@@ -46,6 +50,9 @@
 <svelte:head>
 	<title>{homepage.name}</title>
 	<meta name="description" content={homepage.meta_description} />
+	<meta property="og:title" content={homepage.name} />
+	<meta property="og:description" content={homepage.meta_description} />
+	<meta property="og:url" content={getUrlFromPrismicLink(homepage.domain)} />
 	<link
 		href="https://fonts.googleapis.com/css2?family=Unbounded:wght@900&display=swap"
 		rel="stylesheet"
