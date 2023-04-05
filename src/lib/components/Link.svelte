@@ -8,7 +8,7 @@
 	aria-label={label}
 	target="_blank"
 	rel="noreferrer"
-	class="select-none rounded-xl border-[1px] border-gray-800 border-opacity-50 bg-gray-50 bg-opacity-10 p-1 text-sm shadow-[0] transition-shadow hover:bg-opacity-30 dark:border-gray-50 dark:bg-gray-800 dark:bg-opacity-10"
+	class="select-none rounded-xl border-[1px] border-neutral-800 border-opacity-50 bg-neutral-50 bg-opacity-10 p-1 text-sm shadow-[0] transition-shadow hover:bg-opacity-30 dark:border-neutral-50 dark:bg-neutral-800 dark:bg-opacity-10"
 	>{label}</a
 >
 

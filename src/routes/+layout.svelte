@@ -22,10 +22,10 @@
 	});
 
 	let favicon: HTMLElement | null;
-	let dark = true;
+	let dark = false;
 
 	if (browser) {
-		dark = localStorage.theme === 'dark' || !('theme' in localStorage);
+		dark = localStorage.theme === 'dark';
 	}
 
 	const toggleDark = () => {
@@ -65,9 +65,9 @@
 
 <div class:dark>
 	<div
-		class="relative flex min-h-screen flex-col text-gray-800 dark:text-gray-50"
-		class:dark:bg-gray-800={!isHomepage}
-		class:bg-gray-50={!isHomepage}
+		class="relative flex min-h-screen flex-col text-neutral-800 dark:text-neutral-50"
+		class:dark:bg-neutral-800={!isHomepage}
+		class:bg-neutral-50={!isHomepage}
 		style="--primary-color:{primaryColor}; --secondary-color:{secondaryColor}"
 	>
 		<header
@@ -96,7 +96,7 @@
 		</main>
 
 		<footer class="mt-20 flex w-full items-center justify-center pb-2 sm:mt-0">
-			<span class="text-xs text-gray-50 mix-blend-difference selection:bg-transparent "
+			<span class="text-xs text-neutral-50 mix-blend-difference selection:bg-transparent "
 				>Built with <Heart class="mb-1 inline-block hover:animate-ping" size={15} /> by
 				{homepage.name}</span
 			>

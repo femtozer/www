@@ -27,7 +27,7 @@
 			</a>
 			<div class="hidden gap-3 sm:flex">
 				{#each post.tags as tag}
-					<span class="rounded-xl bg-gray-200 px-2 py-[.1rem] dark:bg-gray-600">{tag}</span>
+					<span class="rounded-xl bg-neutral-200 px-2 py-[.1rem] dark:bg-neutral-600">{tag}</span>
 				{/each}
 			</div>
 		</div>
