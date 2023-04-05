@@ -45,7 +45,7 @@
 	bind:this={card}
 	on:mousemove={handleMove}
 	on:mouseleave={handleLeave}
-	class="w-full max-w-2xl rounded-xl border-0 border-neutral-800 border-opacity-70 bg-neutral-50 bg-opacity-30 p-6  shadow-md shadow-[rgb(0_0_0_/0.25)] backdrop-blur-xl transition duration-500 hover:shadow-2xl hover:duration-[0ms] dark:border-neutral-50 dark:border-opacity-70 dark:bg-neutral-800 dark:bg-opacity-30  dark:shadow-[rgb(255_255_255_/0.25)] md:shadow-2xl"
+	class="w-full max-w-2xl rounded-xl border-0 border-neutral-800 border-opacity-70 bg-neutral-50 bg-opacity-30 p-6 shadow-md shadow-[rgb(0_0_0_/0.25)] backdrop-blur-xl transition duration-500 hover:shadow-2xl hover:duration-[0ms] dark:border-neutral-50 dark:border-opacity-70 dark:bg-neutral-800 dark:bg-opacity-30 dark:shadow-[rgb(255_255_255_/0.25)] md:shadow-2xl"
 >
 	<slot />
 	<div

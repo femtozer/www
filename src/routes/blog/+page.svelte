@@ -11,7 +11,7 @@
 <div class="flex flex-col items-center pb-10 pt-5">
 	{#each blogPosts as post}
 		<div class="mb-10 max-w-4xl">
-			<a href={'/blog/' + post.uid}>
+			<a href={'/blog/' + post.uid} aria-label={post.data.title}>
 				<div class="text-sm sm:text-base">{formatDate(post.data.published_at)}</div>
 				<div class="flex justify-between gap-6">
 					<div>

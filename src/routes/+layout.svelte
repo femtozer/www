@@ -74,8 +74,10 @@
 			class="sticky top-0 z-10 flex w-full flex-row-reverse items-center justify-between p-3 backdrop-blur-xl sm:p-4 {additionalClasses}"
 		>
 			<div class="flex justify-center gap-4 align-middle">
-				<a href={isHomepage ? '/blog' : '/'} class="hover:font-semibold"
-					>{isHomepage ? 'Blog' : 'About'}</a
+				<a
+					href={isHomepage ? '/blog' : '/'}
+					class="hover:font-semibold"
+					aria-label={isHomepage ? 'Blog' : 'About'}>{isHomepage ? 'Blog' : 'About'}</a
 				>
 				<button
 					aria-label="Toggle dark theme"
@@ -87,7 +89,7 @@
 			</div>
 
 			{#if !isHomepage}
-				<a class="font-hero" href="/blog">{homepage.name}</a>
+				<a class="font-hero" href="/blog" aria-label="Back to list of articles">{homepage.name}</a>
 			{/if}
 		</header>
 
@@ -95,7 +97,7 @@
 			<slot />
 		</main>
 
-		<footer class="mt-20 flex w-full items-center justify-center pb-2 sm:mt-0">
+		<footer class="flex w-full items-center justify-center pb-2">
 			<span class="text-xs text-neutral-50 mix-blend-difference selection:bg-transparent "
 				>Built with <Heart class="mb-1 inline-block hover:animate-ping" size={15} /> by
 				{homepage.name}</span

@@ -44,7 +44,7 @@
 		class="text-neutral-50 mix-blend-difference selection:bg-transparent selection:text-neutral-800"
 	>
 		<div>Hi, my name is</div>
-		<div class="font-hero text-4xl leading-normal  sm:text-5xl md:text-7xl">
+		<div class="font-hero text-4xl leading-normal sm:text-5xl md:text-7xl">
 			{homepage.name}
 		</div>
 		<div class="float-right">I'm a {homepage.role}</div>
@@ -64,7 +64,8 @@
 						<Link
 							label={techno.certification_label}
 							href={getUrlFromPrismicLink(techno.certification)}
-						/>
+							target="_blank">{techno.certification_label}</Link
+						>
 					{/if}
 				</li>
 			{/each}
