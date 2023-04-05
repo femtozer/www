@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Link from '$lib/components/Link.svelte';
 	import * as prismicH from '@prismicio/helpers';
 	import type { BlogPostDocumentData } from '../../../types';
 
@@ -8,7 +9,7 @@
 	let formatDate = (date: string | null) => (date ? new Date(date).toLocaleDateString() : '');
 </script>
 
-<div class="flex justify-center">
+<div class="flex flex-col items-center">
 	<article class="max-w-4xl pt-5 pb-10">
 		<div class="mb-2">{formatDate(blogPost.published_at)}</div>
 		<div class="mb-10 font-hero text-2xl  leading-normal sm:text-3xl md:text-4xl">
@@ -16,6 +17,9 @@
 		</div>
 		<div>{@html prismicH.asHTML(blogPost.content)}</div>
 	</article>
+	<div class="pb-10">
+		<Link label="← Back to list of articles" href="/blog" />
+	</div>
 </div>
 
 <style>
