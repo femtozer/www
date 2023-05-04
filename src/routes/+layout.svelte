@@ -99,8 +99,7 @@
 
 		<footer class="flex w-full items-center justify-center pb-2">
 			<span class="text-xs text-neutral-50 mix-blend-difference selection:bg-transparent "
-				>Built with <Heart class="mb-1 inline-block hover:animate-ping" size={15} /> by
-				{homepage.name}</span
+				>Built with <Heart class="mb-1 inline-block hover:animate-ping" size={15} /> by Eliott Benoit</span
 			>
 		</footer>
 	</div>
